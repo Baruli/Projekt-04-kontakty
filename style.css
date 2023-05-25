@@ -1,11 +1,82 @@
 /* nejsme vcerejsi, pouzivame moderni box model */
 *, :after, :before { box-sizing: border-box; }
 
+/* Mobile first design */
 body {
 	font-family: sans-serif;
 	font-size: 14px;
+    min-height: 100vh;
+    margin: 0;
 }
 
-h1 {
+header {
 	text-align: center;
+    position: sticky;
+    top: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    background-color: white;
+    box-shadow: 0px 4px 2px 1px hsla(183, 71%, 73%, 0.4);
+}
+
+
+/* INDIVIDUAL PROFILES (CARDS) */
+.osoba {
+    border: 2px solid lightgrey;
+    border-radius: 1rem;
+    box-shadow: 1px 2px 8px 1px hsla(183, 71%, 73%, 0.4);
+    margin: 0 2rem 1.5rem 2rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.foto img {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* TABLETS */
+@media (min-width: 768px) {
+    header {
+        box-shadow: none;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .tym {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .osoba {
+        width: calc((100% - 4 * 1rem) / 2);
+        margin: 1rem;
+        /* inner container */
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .popis {
+        text-align: left;
+    }
+    .foto {
+        min-width: 128px;
+    }
+}
+
+/* DESKTOP SCREEN */
+@media (min-width: 992px) { 
+    .tym {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .osoba {
+        width: calc((100% - 8 * 1rem) / 4);
+        flex-direction: column;
+    }
+    .popis {
+        text-align: center;
+    }
+
 }
